@@ -1,0 +1,153 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+* {
+    font-family:sans-serif;
+}
+
+:root {
+    --font01-:'Luckiest Guy', cursive;
+    --font02-:'Poppins', sans-serif;
+    --color01-:#A87A4C;
+    --color02-:#E1C5A9;
+    --color03-:#5C5045;
+    --color04-:#db9f6379;
+}
+
+body, ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-family: var(--font02-);
+    font-weight: 400;
+    padding: 1px;
+}
+
+.links:hover {
+    background:var(--color04-);
+    padding: 2px;
+    transition: 1s;
+}
+
+#logo {
+    font-size: 1.6rem;
+    font-weight: 300;
+    font-family: var(--font01-);
+    
+}
+
+#header {
+    background-color:var(--color01-);
+    box-sizing: border-box;
+    height: 70px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 1px 1px 10px gray; /*flex box */
+}
+
+#menu {
+    display: flex;
+    list-style: none;
+    gap: .5rem;
+}
+
+
+#menu a {
+    display: block;
+    padding: .5rem;
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+
+#btn-mobile {
+    display: none;
+}
+
+
+@media screen and (max-width: 600px) {
+   
+
+
+    #menu {
+        display: block;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        top: 70px;
+        right: 0px;
+        background-color:var(--color01-);
+        height: 0;
+        transition: .6s;
+        visibility: hidden;
+        z-index: 1000;
+        overflow-y: hidden;
+       
+    }
+
+    #nav.active #menu {
+        height: calc(100vh - 70px);
+        visibility: visible;
+        overflow-y: auto;
+    }
+
+    #menu a {
+        padding: 1rem 0;
+        margin: 0 1rem;
+    }
+
+    #btn-mobile {
+        color: white;
+        display: flex;
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        gap: .5rem;
+       
+    }
+
+    .links {
+        color: white;
+        font-family: var(--font02-);
+        border-top: 1px solid rgb(156, 156, 156);
+    }
+
+    #burguer {
+        display: block;
+        width: 20px;
+        border-top: 2px solid;
+    }
+
+    #burguer::after, #burguer::before{
+        content: ''; /* criando um conteudo vazio para que seja criado o hamburguer */
+        display: block; 
+        width: 20px;
+        height: 2px;
+        background: white; 
+        margin-top: 5px;
+        transition: .3s;
+        position: relative;
+    }
+
+    #nav.active #burguer {
+        border-top-color:transparent; /*escondendo uma das linhas */
+    }
+
+
+    #nav.active #burguer::before {
+        transform: rotate(135deg); /* alinhando a primeira linha com a segunda linha */
+    }
+
+    #nav.active #burguer::after { /* movimento para a segunda linha */
+        transform: rotate(-135deg); /* alinhanndo a segunda linha do menu com a primeira */
+        top: -7px; /* alinhando o menu */
+    }
+}
