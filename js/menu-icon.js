@@ -1,6 +1,5 @@
 const  btnMobile = document.getElementById('btn-mobile'); //declarando a variavel que ira buscar o id no documento html, ou seja, manipulando o dom.
 
-
 function toggleMenu(event) {
      // criando a funcao do clique do botao
      if (event.type === 'touchstart') event.preventDefault; 
